@@ -1,0 +1,45 @@
+﻿@model List<Product>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center" style="margin-bottom:2rem;">
+    <h1 class="display-4">Products</h1>
+</div>
+
+<table class="table table-bordered table-striped" style="width:100%;">
+    <thead>
+        <tr>
+            <th>
+                ID
+            </th>
+            <th>
+                Product name
+            </th>
+            <th>
+                Price
+            </th>
+            <th>
+                Image
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var obj in Model){
+            <tr>
+                <td width="25%">
+                    @obj.Id
+                </td>
+                <td width="25%">
+                    @obj.Name
+                </td>
+                <td width="25%">
+                    @obj.Price
+                </td>
+                <td width="25%">
+                    @obj.Img
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
