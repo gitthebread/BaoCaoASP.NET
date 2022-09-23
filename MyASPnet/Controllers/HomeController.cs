@@ -10,7 +10,7 @@ namespace MyASPnet.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        string connectionString = "Data Source=DESKTOP-12J6D6C\\Nam;Initial Catalog = mydatabase; Integrated Security = True";
+        string connectionString = "Data Source=DESKTOP-2TS7TPE\\NHATQUANG;Initial Catalog=mydatabase;Integrated Security=True";
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
@@ -38,6 +38,19 @@ namespace MyASPnet.Controllers
             }
             return View(list);
         }
+        [HttpPost]
+        public IActionResult Create()
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                string query = "update product set name = @name , price = @price , img = @img , description = @desc where id = @id";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.ExecuteNonQuery();
+            }
+            return View();
+        }
+
         public IActionResult Edit(int id)
         {
             Product product = new Product();

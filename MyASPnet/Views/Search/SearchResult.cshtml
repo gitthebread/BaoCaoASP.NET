@@ -1,20 +1,10 @@
 ﻿@model List<Product>
+
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Search Result";
 }
 
-<div class="container p-3">
-    <div class="row pt-4">
-        <div class="col-6">
-            <h2 class="text-black">Products</h2>
-        </div>
-        <div class="col-6 text-end">
-            <a asp-controller="Home" asp-action="Create" class="btn btn-primary">
-                Create new product
-            </a>
-        </div>
-    </div>
-</div>
+<h2 class="text-black">Search Result</h2>
 
 <table class="table table-bordered table-striped" style="width:100%;">
     <thead>
@@ -34,7 +24,8 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var obj in Model){
+        @foreach (var obj in Model)
+        {
             <tr>
                 <td>
                     @obj.Id
@@ -56,3 +47,4 @@
         }
     </tbody>
 </table>
+

@@ -8,45 +8,53 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = MyASPnet
 build_property.RootNamespace = MyASPnet
-build_property.ProjectDir = C:\Users\Admin\Desktop\Edit\BaoCaoASP.NET\MyASPnet\
+build_property.ProjectDir = D:\Projects\GitHub\BaoCaoASP.NET\MyASPnet\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Admin\Desktop\Edit\BaoCaoASP.NET\MyASPnet
+build_property.MSBuildProjectDirectory = D:\Projects\GitHub\BaoCaoASP.NET\MyASPnet
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Admin/Desktop/Edit/BaoCaoASP.NET/MyASPnet/Views/Home/Edit.cshtml]
+[D:/Projects/GitHub/BaoCaoASP.NET/MyASPnet/Views/Home/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projects/GitHub/BaoCaoASP.NET/MyASPnet/Views/Home/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Desktop/Edit/BaoCaoASP.NET/MyASPnet/Views/Home/Index.cshtml]
+[D:/Projects/GitHub/BaoCaoASP.NET/MyASPnet/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Desktop/Edit/BaoCaoASP.NET/MyASPnet/Views/Home/Privacy.cshtml]
+[D:/Projects/GitHub/BaoCaoASP.NET/MyASPnet/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Desktop/Edit/BaoCaoASP.NET/MyASPnet/Views/Search/Index.cshtml]
+[D:/Projects/GitHub/BaoCaoASP.NET/MyASPnet/Views/Search/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VhcmNoXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Desktop/Edit/BaoCaoASP.NET/MyASPnet/Views/Shared/Error.cshtml]
+[D:/Projects/GitHub/BaoCaoASP.NET/MyASPnet/Views/Search/SearchResult.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VhcmNoXFNlYXJjaFJlc3VsdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projects/GitHub/BaoCaoASP.NET/MyASPnet/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Desktop/Edit/BaoCaoASP.NET/MyASPnet/Views/Shared/_ValidationScriptsPartial.cshtml]
+[D:/Projects/GitHub/BaoCaoASP.NET/MyASPnet/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Desktop/Edit/BaoCaoASP.NET/MyASPnet/Views/_ViewImports.cshtml]
+[D:/Projects/GitHub/BaoCaoASP.NET/MyASPnet/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Desktop/Edit/BaoCaoASP.NET/MyASPnet/Views/_ViewStart.cshtml]
+[D:/Projects/GitHub/BaoCaoASP.NET/MyASPnet/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Desktop/Edit/BaoCaoASP.NET/MyASPnet/Views/Shared/_Layout.cshtml]
+[D:/Projects/GitHub/BaoCaoASP.NET/MyASPnet/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-sp0yj4zios

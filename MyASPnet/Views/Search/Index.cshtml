@@ -1,6 +1,15 @@
-﻿@{
-    ViewData["Title"] = "Index";
-}
+﻿@model Product
 
-<h1>Search for an item</h1>
+<form asp-action="SearchResult">
+    <div class="row pb-2">
+        <h2 class="text-black">Search for an item</h2>
+        <hr />
+    </div>
+    <div class="mb-3">
+        <label for="searchstr"></label>
+        <input name="searchstr" placeholder="Search for name" style="width:500px;">
+    </div>
+    <button type="submit" class="btn btn-primary">Search</button>
+    <a asp-controller="Home" asp-action="Index" class="btn btn-primary">Back to Product</a>
+</form>
 

@@ -991,3 +991,8 @@ C:\Users\Admin\Desktop\Edit\BaoCaoASP.NET\MyASPnet\obj\Debug\net6.0\refint\MyASP
 C:\Users\Admin\Desktop\Edit\BaoCaoASP.NET\MyASPnet\obj\Debug\net6.0\MyASPnet.pdb
 C:\Users\Admin\Desktop\Edit\BaoCaoASP.NET\MyASPnet\obj\Debug\net6.0\MyASPnet.genruntimeconfig.cache
 C:\Users\Admin\Desktop\Edit\BaoCaoASP.NET\MyASPnet\obj\Debug\net6.0\ref\MyASPnet.dll
+D:\Projects\GitHub\BaoCaoASP.NET\MyASPnet\bin\Debug\net6.0\Microsoft.OpenApi.dll
+D:\Projects\GitHub\BaoCaoASP.NET\MyASPnet\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\Projects\GitHub\BaoCaoASP.NET\MyASPnet\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\Projects\GitHub\BaoCaoASP.NET\MyASPnet\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\Projects\GitHub\BaoCaoASP.NET\MyASPnet\obj\Debug\net6.0\MyASPnet.MvcApplicationPartsAssemblyInfo.cs
