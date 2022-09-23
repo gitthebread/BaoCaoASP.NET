@@ -9172,11 +9172,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Projects\\Web\\MyASPnet\\MyASPnet\\MyASPnet.csproj",
+      "projectUniqueName": "D:\\Projects\\GitHub\\BaoCaoASP.NET\\MyASPnet\\MyASPnet.csproj",
       "projectName": "MyASPnet",
-      "projectPath": "D:\\Projects\\Web\\MyASPnet\\MyASPnet\\MyASPnet.csproj",
+      "projectPath": "D:\\Projects\\GitHub\\BaoCaoASP.NET\\MyASPnet\\MyASPnet.csproj",
       "packagesPath": "C:\\Users\\HOME\\.nuget\\packages\\",
-      "outputPath": "D:\\Projects\\Web\\MyASPnet\\MyASPnet\\obj\\",
+      "outputPath": "D:\\Projects\\GitHub\\BaoCaoASP.NET\\MyASPnet\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\HOME\\AppData\\Roaming\\NuGet\\NuGet.Config",
