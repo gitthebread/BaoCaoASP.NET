@@ -19,6 +19,7 @@ namespace MyASPnet.Controllers
         public IActionResult Index()
         {
             List<Product> list = new List<Product>();
+
             SqlConnection conn = new SqlConnection("Data Source=DESKTOP-SKTQ3SG\\NHATQUANG;Initial Catalog=mydatabase;Integrated Security=True");
             conn.Open();
             string query = "select * from Product";
