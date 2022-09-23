@@ -39,6 +39,10 @@
                 <td>
                     <img src="@obj.Img" style="height:100px;width:100px;">
                 </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id=obj.Id }) <br>
+                    @Html.ActionLink("Delete", "Delete", new { id=obj.Id })
+                </td>
             </tr>
         }
     </tbody>

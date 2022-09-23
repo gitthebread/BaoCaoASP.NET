@@ -10,7 +10,7 @@ namespace MyASPnet.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
+        string connectionString = "Data Source=DESKTOP-12J6D6C\\Nam;Initial Catalog = mydatabase; Integrated Security = True";
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
@@ -20,7 +20,7 @@ namespace MyASPnet.Controllers
         {
             List<Product> list = new List<Product>();
 
-            SqlConnection conn = new SqlConnection("Data Source=DESKTOP-SKTQ3SG\\NHATQUANG;Initial Catalog=mydatabase;Integrated Security=True");
+            SqlConnection conn = new SqlConnection(connectionString);
             conn.Open();
             string query = "select * from Product";
 
@@ -38,7 +38,47 @@ namespace MyASPnet.Controllers
             }
             return View(list);
         }
-
+        public IActionResult Edit(int id)
+        {
+            Product product = new Product();
+            DataTable dt = new DataTable();
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                string query = "select * from product where id = @Id";
+                SqlDataAdapter sqlda = new SqlDataAdapter(query, conn);
+                sqlda.SelectCommand.Parameters.AddWithValue("@Id", id);
+                sqlda.Fill(dt);
+            }
+            if (dt.Rows.Count == 1)
+            {
+                product.Id = Convert.ToInt32(dt.Rows[0][0]);
+                product.Name = (string)dt.Rows[0][1];
+                product.Price = (string)dt.Rows[0][2];
+                product.Img = (string)dt.Rows[0][3];
+                product.Desc = (string)dt.Rows[0][4];
+                return View(product);
+            }
+            else
+                return RedirectToAction("Index");
+        }
+        [HttpPost]
+        public IActionResult Edit(Product product)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                string query = "update product set name = @name , price = @price , img = @img , description = @desc where id = @id";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@name", product.Name);
+                cmd.Parameters.AddWithValue("@price", product.Price);
+                cmd.Parameters.AddWithValue("@img", product.Img);
+                cmd.Parameters.AddWithValue("@desc", product.Desc);
+                cmd.Parameters.AddWithValue("@id", product.Id);
+                cmd.ExecuteNonQuery();
+            }
+            return RedirectToAction("Index");
+        }
         public IActionResult Privacy()
         {
             return View();
