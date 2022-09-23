@@ -1,0 +1,18 @@
+CREATE DATABASE mydatabase
+go
+CREATE TABLE Product (
+    id Int PRIMARY KEY,
+    name Nvarchar(255),
+	price nvarchar(50),
+	img Text ,
+	description Ntext,
+)
+
+INSERT INTO Product VALUES (1,N'Patek Philippe Complications 5205R-010','2.500.000.000','https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhA5RxVCKvfECNfD33pqwhz6HWLdA1PtH7pFqpk6EFOqU0vvHh1UlFmm5sLPKFMvI4QeU&usqp=CAU',N'You never actually own a Patek Philippe, You merely look after it for the next generation');
+INSERT INTO Product VALUES (2,N'Đồng Hồ Patek Philippe Complications Calatrava Pilot Travel Time 7234R-001','1.500.000.000','https://frodos.com.vn/wp-content/uploads/2021/06/Capture-5.png',N'Có nhiều dòng để thích hợp với gu thẩm mỹ của mỗi người chơi, nhưng để thiết kế một tác phẩm cơ khí mạnh mẽ, đích thực, cá tính cho Nữ cở trưởng, những quý cô có gu thẩm mỹ sắc cạnh, khác biệt thì không thể không nhắc đến phiên bản Patek Philippe Calatrava Pilot Travel Time 7234R-001.');
+INSERT INTO Product VALUES (3,N'Đồng Hồ Patek Philippe Complications 5205R-001','3.500.000.000','https://product.hstatic.net/200000439853/product/pre-owned-patek-philippe-annual-5205r-001_88f23c8e07f149ecb0d416426d937324_master.jpg',N'Là thương hiệu nổi tiếng với những mẫu đồng hồ xa xỉ bậc nhất trên thế giới, từng cỗ máy thời gian nhà Patek Philippe khi xuất xưởng luôn là niềm khao khát của giới mộ điệu.');
+INSERT INTO Product VALUES (4,N'Đồng Hồ Patek Philippe Grand Complications 5270P-014','4.500.000.000','https://24kara.com/files/sanpham/27299/1/jpg/dong-ho-patek-philippe-grand-complications-5270p-014.jpg',N'Đẳng cấp - lịch lãm - nam tính');
+INSERT INTO Product VALUES (5,N'Datejust','250.000.000','https://rolex.dafc.com.vn/wp-content/uploads/2022/05/m278384rbr-0008_collection_upright_landscape.jpg',N'Vẻ đẹp thẩm mỹ trường tồn của Datejust khiến cho chiếc đồng hồ luôn dễ dàng nhận biết ngay tức thì.');
+INSERT INTO Product VALUES (6,N'Day-Date','450.000.000','https://rolex.dafc.com.vn/wp-content/uploads/2022/05/m228238-0061_collection_upright_landscape.jpg',N'Nếu thời gian có thể thay đổi mọi thứ, thì giây phút này sẽ thay đổi điều chưa từng có. Khi đến thời khắc giao thoa giữa ngày và đêm, Oyster Perpetual Day-Date tạo thành cầu nối giữa quá khứ và tương lai, giữa những điều đã đạt được và những gì đang vươn tới.');
+INSERT INTO Product VALUES (7,N'Sky-Dweller','1.450.000.000','https://rolex.dafc.com.vn/wp-content/uploads/2022/05/m326934-0005_collection_upright_landscape.jpg',N'Chiếc đồng hồ thanh lịch dành cho những nhà du hành, Sky-Dweller hiển thị thời gian theo hai múi giờ và tích hợp lịch hàng năm.');
+INSERT INTO Product VALUES (8,N'Yacht-Master','4.500.000.000','https://frodos.com.vn/wp-content/uploads/2021/03/Capture-24.png',N'Thoải mái trên biển như đi trên chiếc thuyền buồm, Yacht-Master kết hợp tính chất đặc trưng và hiệu năng. Chất lượng không thấm nước và chất lượng bền bỉ của mô hình này làm cho nó trở thành chiếc đồng hồ lý tưởng cho các môn thể thao dưới nước và bộ môn thuyền buồm nói riêng.');
