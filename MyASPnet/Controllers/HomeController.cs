@@ -32,7 +32,7 @@ namespace MyASPnet.Controllers
                 product.Name = (string)reader["name"];
                 product.Price = (string)reader["price"];
                 product.Img = (string)reader["img"];
-                product.Desc = (string)reader["description"]; 
+                product.Desc = (string)reader["description"];
                 list.Add(product);
             }
             return View(list);
