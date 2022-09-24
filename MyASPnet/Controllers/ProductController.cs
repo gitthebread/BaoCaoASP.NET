@@ -39,6 +39,7 @@ namespace MyASPnet.Controllers
                 product.Price = (string)reader["price"];
                 product.Img = (string)reader["img"];
                 product.Desc = (string)reader["description"];
+                product.Status = (int)reader["status"];
                 list.Add(product);
             }
             conn.Close();
@@ -76,7 +77,7 @@ namespace MyASPnet.Controllers
                 product.Price = (string)reader["price"];
                 product.Img = (string)reader["img"];
                 product.Desc = (string)reader["description"];
-
+               
             }
             conn.Close();
             return View(product);
@@ -132,6 +133,44 @@ namespace MyASPnet.Controllers
                 return RedirectToAction("Index");
             }
             return View(product);
+        }
+
+        public IActionResult Delete(int id) //Opening the delete page
+        {
+            SqlConnection conn = new SqlConnection(connectionString);
+            conn.Open();
+            string query = "select * from product where id = @id";
+            List<SqlParameter> listpara = new List<SqlParameter>()
+            {
+                new SqlParameter("@id", id),
+            };
+            SqlCommand cmd = new SqlCommand(query, conn);
+            cmd.Parameters.AddRange(listpara.ToArray());
+            SqlDataReader reader = cmd.ExecuteReader();
+            Product product = new Product();
+            while (reader.Read())
+            {
+                product.Id = (int)reader["id"];
+                product.Status = (int)reader["status"];
+            }
+            conn.Close();
+            return View(product);
+        }
+
+
+        [HttpPost]
+        public IActionResult Delete(Product product) //Delete the item
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                string query = "update product set status = @status where id = @id";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@id", product.Id);
+                cmd.Parameters.AddWithValue("@status", 0);
+                cmd.ExecuteNonQuery();
+            }
+            return RedirectToAction("Index");
         }
     }
 }

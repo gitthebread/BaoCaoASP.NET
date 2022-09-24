@@ -31,6 +31,9 @@
             <th>
                 Image
             </th>
+            <th>
+                Status
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -47,6 +50,9 @@
                 </td>
                 <td style="text-align:center;">
                     <img src="@obj.Img" style="height:100px;width:100px;">
+                </td>
+                <td>
+                    @obj.Status
                 </td>
                 <td style="text-align:center;">
                     @Html.ActionLink("Edit", "Edit", new { id=obj.Id }) <span>-</span>

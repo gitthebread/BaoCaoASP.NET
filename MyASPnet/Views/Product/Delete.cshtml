@@ -1,0 +1,17 @@
+﻿@model MyASPnet.Models.Product
+
+@{
+    ViewData["Title"] = "Delete";
+}
+    <h1>Bạn có muốn xóa</h1>
+    <div>
+        <form asp-action="Delete">
+            <div class="form-group">
+                <input type="submit" value="Delete" class="btn btn-primary mt-3" />
+            </div>
+        </form>
+    </div>
+
+<div style="margin-top:40px;">
+    <a asp-action="Index">Back to List</a>
+</div>

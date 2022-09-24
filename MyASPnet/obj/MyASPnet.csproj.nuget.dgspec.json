@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Projects\\GitHub\\BaoCaoASP.NET\\MyASPnet\\MyASPnet.csproj": {}
+    "C:\\Users\\X\\Desktop\\New folder (2)\\BaoCaoASP.NET\\MyASPnet\\MyASPnet.csproj": {}
   },
   "projects": {
-    "D:\\Projects\\GitHub\\BaoCaoASP.NET\\MyASPnet\\MyASPnet.csproj": {
+    "C:\\Users\\X\\Desktop\\New folder (2)\\BaoCaoASP.NET\\MyASPnet\\MyASPnet.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projects\\GitHub\\BaoCaoASP.NET\\MyASPnet\\MyASPnet.csproj",
+        "projectUniqueName": "C:\\Users\\X\\Desktop\\New folder (2)\\BaoCaoASP.NET\\MyASPnet\\MyASPnet.csproj",
         "projectName": "MyASPnet",
-        "projectPath": "D:\\Projects\\GitHub\\BaoCaoASP.NET\\MyASPnet\\MyASPnet.csproj",
-        "packagesPath": "C:\\Users\\HOME\\.nuget\\packages\\",
-        "outputPath": "D:\\Projects\\GitHub\\BaoCaoASP.NET\\MyASPnet\\obj\\",
+        "projectPath": "C:\\Users\\X\\Desktop\\New folder (2)\\BaoCaoASP.NET\\MyASPnet\\MyASPnet.csproj",
+        "packagesPath": "C:\\Users\\X\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\X\\Desktop\\New folder (2)\\BaoCaoASP.NET\\MyASPnet\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\HOME\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\X\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
