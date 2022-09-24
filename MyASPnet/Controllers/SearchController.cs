@@ -33,6 +33,7 @@ namespace MyASPnet.Controllers
                 product.Desc = (string)reader["description"];
                 list.Add(product);
             }
+            conn.Close();
             return View(list);
         }
     }

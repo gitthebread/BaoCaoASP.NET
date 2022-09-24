@@ -10,21 +10,31 @@ namespace MyASPnet.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        string connectionString = "Data Source=DESKTOP-2TS7TPE\\NHATQUANG;Initial Catalog=mydatabase;Integrated Security=True";
+        string connectionString = "Data Source=DESKTOP-12J6D6C\\Nam;Initial Catalog=mydatabase;Integrated Security=True";
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(int? page)
         {
+            if (page == null) page = 1;
+            int pagesize = 3;
+            int pagenumber = (page ?? 1);
+            int from = (pagenumber - 1) * pagesize;
             List<Product> list = new List<Product>();
 
             SqlConnection conn = new SqlConnection(connectionString);
             conn.Open();
-            string query = "select * from Product";
+            string query = "select * from product order by id offset @from rows fetch next @size rows only";
+            List<SqlParameter> listpara = new List<SqlParameter>()
+            {
+                new SqlParameter("@from", from),
+                new SqlParameter("@size", pagesize),
 
+            };
             SqlCommand cmd = new SqlCommand(query, conn);
+            cmd.Parameters.AddRange(listpara.ToArray());
             SqlDataReader reader = cmd.ExecuteReader();
             while (reader.Read())
             {
@@ -36,7 +46,45 @@ namespace MyASPnet.Controllers
                 product.Desc = (string)reader["description"];
                 list.Add(product);
             }
-            return View(list);
+            conn.Close();
+            return View(new Pagination(list, totalPage(pagesize)));
+        }
+        private int totalPage(int pagesize)
+        {
+            SqlConnection conn = new SqlConnection(connectionString);
+            conn.Open();
+            string query2 = "select count(*) from product";
+            SqlCommand cmd2 = new SqlCommand(query2, conn);
+            object total = cmd2.ExecuteScalar();
+            conn.Close();
+            double result = Math.Ceiling((double)(int)total / pagesize);
+            return (int)result;
+        }
+        public IActionResult Edit(int id)
+        {
+            SqlConnection conn = new SqlConnection(connectionString);
+            conn.Open();
+            string query = "select * from product where id = @id";
+            List<SqlParameter> listpara = new List<SqlParameter>()
+            {
+                new SqlParameter("@id", id),
+            };
+            SqlCommand cmd = new SqlCommand(query, conn);
+            cmd.Parameters.AddRange(listpara.ToArray());
+            SqlDataReader reader = cmd.ExecuteReader();
+            Product product = new Product();
+            while (reader.Read())
+            {
+
+                product.Id = (int)reader["id"];
+                product.Name = (string)reader["name"];
+                product.Price = (string)reader["price"];
+                product.Img = (string)reader["img"];
+                product.Desc = (string)reader["description"];
+
+            }
+            conn.Close();
+            return View(product);
         }
         [HttpPost]
         public IActionResult Create()
@@ -51,30 +99,7 @@ namespace MyASPnet.Controllers
             return View();
         }
 
-        public IActionResult Edit(int id)
-        {
-            Product product = new Product();
-            DataTable dt = new DataTable();
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            {
-                conn.Open();
-                string query = "select * from product where id = @Id";
-                SqlDataAdapter sqlda = new SqlDataAdapter(query, conn);
-                sqlda.SelectCommand.Parameters.AddWithValue("@Id", id);
-                sqlda.Fill(dt);
-            }
-            if (dt.Rows.Count == 1)
-            {
-                product.Id = Convert.ToInt32(dt.Rows[0][0]);
-                product.Name = (string)dt.Rows[0][1];
-                product.Price = (string)dt.Rows[0][2];
-                product.Img = (string)dt.Rows[0][3];
-                product.Desc = (string)dt.Rows[0][4];
-                return View(product);
-            }
-            else
-                return RedirectToAction("Index");
-        }
+        
         [HttpPost]
         public IActionResult Edit(Product product)
         {

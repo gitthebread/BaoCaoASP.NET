@@ -1,4 +1,4 @@
-﻿@model List<Product>
+﻿@model MyASPnet.Models.Pagination
 @{
     ViewData["Title"] = "Home Page";
 }
@@ -34,7 +34,7 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var obj in Model){
+        @foreach (var obj in Model.list){
             <tr>
                 <td>
                     @obj.Id
@@ -56,3 +56,10 @@
         }
     </tbody>
 </table>
+    <p class="boder shadow" style="display: inline-flex; background-color: #D3D1D1">
+            Page: 
+            @for(int i = 1; i <= @Model.pageTotal; i++)
+            {
+                 <a href="@Url.Action("Index", new {page = @i})" style="margin-left: 10px;">@i</a>
+            }
+        </p>    
