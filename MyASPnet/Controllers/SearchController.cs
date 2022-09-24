@@ -6,7 +6,7 @@ namespace MyASPnet.Controllers
 {
     public class SearchController : Controller
     {
-        string connectionString = "Data Source=DESKTOP-2TS7TPE\\NHATQUANG;Initial Catalog=mydatabase;Integrated Security=True";
+        readonly string connectionString = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build().GetSection("ConnectionStrings")["DefaultConnection"];
 
         public IActionResult Index()
         {

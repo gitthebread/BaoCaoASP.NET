@@ -10,7 +10,7 @@ namespace MyASPnet.Controllers
 {
     public class ProductController : Controller
     {
-        string connectionString = "Data Source=DESKTOP-12J6D6C\\Nam;Initial Catalog=mydatabase;Integrated Security=True";
+        readonly string connectionString = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build().GetSection("ConnectionStrings")["DefaultConnection"];
         public IActionResult Index(int? page)
         {
             if (page == null) page = 1;
@@ -21,7 +21,7 @@ namespace MyASPnet.Controllers
 
             SqlConnection conn = new SqlConnection(connectionString);
             conn.Open();
-            string query = "select * from product order by id offset @from rows fetch next @size rows only";
+            string query = "select * from product where status = 1 order by id offset @from rows fetch next @size rows only";
             List<SqlParameter> listpara = new List<SqlParameter>()
             {
                 new SqlParameter("@from", from),
@@ -48,14 +48,14 @@ namespace MyASPnet.Controllers
         {
             SqlConnection conn = new SqlConnection(connectionString);
             conn.Open();
-            string query2 = "select count(*) from product";
+            string query2 = "select count(*) from product where status = 1";
             SqlCommand cmd2 = new SqlCommand(query2, conn);
             object total = cmd2.ExecuteScalar();
             conn.Close();
             double result = Math.Ceiling((double)(int)total / pagesize);
             return (int)result;
         }
-        public IActionResult Edit(int id)
+        public IActionResult Edit(int id) //Opening the edit page
         {
             SqlConnection conn = new SqlConnection(connectionString);
             conn.Open();
@@ -82,19 +82,9 @@ namespace MyASPnet.Controllers
             return View(product);
         }
 
-        public IActionResult Create()
-        {
-            return View();
-        }
 
         [HttpPost]
-        public IActionResult Create(Product product)
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public IActionResult Edit(Product product)
+        public IActionResult Edit(Product product) //Editing the item
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
@@ -109,6 +99,39 @@ namespace MyASPnet.Controllers
                 cmd.ExecuteNonQuery();
             }
             return RedirectToAction("Index");
+        }
+
+        public IActionResult Create() //Opening the create page
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(Product product) //Creating the item
+        {
+            if (ModelState.IsValid)
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    
+                    string countquery = "select count(*) from product";
+                    SqlCommand cmd2 = new SqlCommand(countquery, conn);
+                    int count = (Int32)cmd2.ExecuteScalar();
+
+                    string query = $"insert into Product values ({count + 1}, @name, @price, @img ,@desc ,1)";
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@name", product.Name);
+                    cmd.Parameters.AddWithValue("@price", product.Price);
+                    cmd.Parameters.AddWithValue("@img", product.Img);
+                    cmd.Parameters.AddWithValue("@desc", product.Desc);
+                    cmd.Parameters.AddWithValue("@id", product.Id);
+                    cmd.ExecuteNonQuery();
+                }
+                return RedirectToAction("Index");
+            }
+            return View(product);
         }
     }
 }
