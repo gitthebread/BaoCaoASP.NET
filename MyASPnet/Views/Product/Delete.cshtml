@@ -3,15 +3,11 @@
 @{
     ViewData["Title"] = "Delete";
 }
-    <h1>Bạn có muốn xóa</h1>
+    <h1>Remove this item from the list?</h1>
     <div>
         <form asp-action="Delete">
-            <div class="form-group">
-                <input type="submit" value="Delete" class="btn btn-primary mt-3" />
-            </div>
+            <input type="submit" value="Yes" class="btn btn-primary mt-3" style="width:150px;"/>
+            <a class="btn btn-primary mt-3" asp-action="Index" style="width:150px;">No</a>
         </form>
     </div>
 
-<div style="margin-top:40px;">
-    <a asp-action="Index">Back to List</a>
-</div>

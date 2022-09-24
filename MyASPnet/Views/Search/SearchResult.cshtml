@@ -40,11 +40,10 @@
                     <img src="@obj.Img" style="height:100px;width:100px;">
                 </td>
                 <td style="text-align:center;">
-                    @Html.ActionLink("Edit", "Edit", new { id=obj.Id }) <span>-</span>
-                    @Html.ActionLink("Delete", "Delete", new { id=obj.Id })
+                    @Html.ActionLink("Edit", "Edit", "Product", new { id=obj.Id }) <span>-</span>
+                    @Html.ActionLink("Delete", "Delete", "Product", new { id=obj.Id })
                 </td>
             </tr>
         }
     </tbody>
 </table>
-

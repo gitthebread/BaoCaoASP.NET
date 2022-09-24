@@ -1,0 +1,11 @@
+﻿p{
+    font-weight:600;
+    font-size:20px;
+}
+
+.qty-box{
+    display:flex;
+}
+.add-to-box{
+    margin-top:15%;
+}

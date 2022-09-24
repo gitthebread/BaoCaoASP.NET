@@ -172,5 +172,23 @@ namespace MyASPnet.Controllers
             }
             return RedirectToAction("Index");
         }
+
+        public IActionResult Detail(int id) //Opening the detail page
+        {
+            Product product = new Product();
+            SqlConnection conn = new SqlConnection(connectionString);
+            conn.Open();
+            string query = $"select * from product where id = {id}";
+            SqlCommand cmd = new SqlCommand(query, conn);
+            SqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                product.Name = (string)reader["name"];
+                product.Price = (string)reader["price"];
+                product.Img = (string)reader["img"];
+                product.Desc = (string)reader["description"];
+            }
+            return View(product);
+        }
     }
 }

@@ -19,7 +19,7 @@ namespace MyASPnet.Controllers
 
             SqlConnection conn = new SqlConnection(connectionString);
             conn.Open();
-            string query = $"SELECT * from Product WHERE name LIKE '%{searchstr.ToLower()}%'";
+            string query = $"SELECT * from Product WHERE name LIKE '%{searchstr.ToLower()}%' and status = 1";
 
             SqlCommand cmd = new SqlCommand(query, conn);
             SqlDataReader reader = cmd.ExecuteReader();

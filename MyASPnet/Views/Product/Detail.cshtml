@@ -1,0 +1,82 @@
+﻿@model Product
+@{
+    ViewData["Title"] = "Detail";
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/detail.css" asp-append-version="true" />
+</head>
+
+<body>
+    <h1 style="text-align:center;">Product Detail</h1>
+    <hr />
+
+    <div class="container-fluid">
+        <div class="row">
+            <h2 style="text-align:center;">@Model.Name</h2>
+            <div class="col-6 mt-3">
+                <img src="@Model.Img" style="width:500px;height:500px;">
+            </div>
+            <div class="col-6 mt-5">
+                <div class="row">
+                    <p>
+                        Price: &emsp;@Model.Price
+                    </p>
+                </div>
+                <div class="row">
+                    <p>
+                        Description:
+                        <br><br>
+                        @Model.Desc
+                    </p>
+                </div>
+                <div class="row add-to-box">
+                    <div class="add-to-cart nn-margin-bottom">
+                        <div class="qty-box mb-3">
+                            <button type="button" class="btn btn-danger cong" value="kiet" onclick="giam()">-</button>
+                            <input type="text" style="width:50px" class="form-control" name="qty" id="qty" maxlength="12" value="1" title="Qty">
+                            <button type="button" class="btn btn-danger cong" value="kiet" onclick="tang()">+</button>
+                        </div>
+                    </div>
+                    <div class="button2nut">
+                        <button type="button" title="Add to Cart" class="btn btn-success add-to-cart">
+                            <span>Thêm vào giỏ</span>
+                        </button>
+                        <button type="button" title="Add to Cart" class="btn btn-outline-danger add-to-cart" onclick="huy()">
+                            <span>Hủy</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script language="javascript">
+    function tang() {
+
+        sl = parseInt(document.getElementById('qty').value)
+        document.getElementById('qty').value = sl + 1;
+
+    }
+    function giam() {
+
+        sl = parseInt(document.getElementById('qty').value)
+        if (sl > 0) {
+            document.getElementById('qty').value = sl - 1;
+        }
+    }
+    function huy() {
+        document.getElementById('qty').value = 0;
+    }
+    function anhien() {
+
+        if (document.getElementById('thongtinchitiet').style.visibility == "visible") {
+            document.getElementById('thongtinchitiet').style.visibility = "hidden"
+        }
+        else {
+            document.getElementById('thongtinchitiet').style.visibility = "visible"
+        }
+    }
+
+</script>
