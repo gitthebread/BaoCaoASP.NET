@@ -1,0 +1,65 @@
+﻿@model MyASPnet.Models.Pagination
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-black">Products</h2>
+        </div>
+        <div class="col-6 text-end">
+            <a asp-controller="Product" asp-action="Create" class="btn btn-primary">
+                Create new product
+            </a>
+        </div>
+    </div>
+</div>
+
+<table class="table table-bordered table-striped" style="width:100%;">
+    <thead>
+        <tr>
+            <th>
+                ID
+            </th>
+            <th>
+                Product name
+            </th>
+            <th>
+                Price
+            </th>
+            <th>
+                Image
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var obj in Model.list){
+            <tr>
+                <td>
+                    @obj.Id
+                </td>
+                <td>
+                    @obj.Name
+                </td>
+                <td>
+                    @obj.Price
+                </td>
+                <td style="text-align:center;">
+                    <img src="@obj.Img" style="height:100px;width:100px;">
+                </td>
+                <td style="text-align:center;">
+                    @Html.ActionLink("Edit", "Edit", new { id=obj.Id }) <span>-</span>
+                    @Html.ActionLink("Delete", "Delete", new { id=obj.Id })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+    <p class="boder shadow" style="display: inline-flex; background-color: #D3D1D1">
+            Page: 
+            @for(int i = 1; i <= @Model.pageTotal; i++)
+            {
+                 <a href="@Url.Action("Index", new {page = @i})" style="margin-left: 10px;">@i</a>
+            }
+        </p>    
