@@ -39,7 +39,7 @@ namespace MyASPnet.Controllers
                 product.Price = (string)reader["price"];
                 product.Img = (string)reader["img"];
                 product.Desc = (string)reader["description"];
-                product.Status = (int)reader["status"];
+                product.Status = (bool)reader["status"];
                 list.Add(product);
             }
             conn.Close();
@@ -151,7 +151,7 @@ namespace MyASPnet.Controllers
             while (reader.Read())
             {
                 product.Id = (int)reader["id"];
-                product.Status = (int)reader["status"];
+                product.Status = (bool)reader["status"];
             }
             conn.Close();
             return View(product);
