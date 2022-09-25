@@ -188,6 +188,7 @@ namespace MyASPnet.Controllers
                 product.Img = (string)reader["img"];
                 product.Desc = (string)reader["description"];
             }
+            conn.Close();
             return View(product);
         }
     }
